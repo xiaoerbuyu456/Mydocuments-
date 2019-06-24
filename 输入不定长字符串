@@ -1,0 +1,28 @@
+/*输入任意一个长度的字符串，进行正序与倒序输出*/
+	int strlen=5;
+	int count=0;
+	char ch;
+	char *str=(char *)malloc(strlen*sizeof(char*));
+	printf("please input!\n");
+	while(ch!='\n')
+	{
+		ch=getchar();
+		count++;
+		if(count>=strlen)
+		{
+			str=(char *)realloc(str,sizeof(char*)*(++strlen));
+		}
+		str[count-1]=ch;
+	}	
+	//正序输出
+	for(int i=0;i<count;i++)
+	{
+		printf("%c",str[i]);
+	}
+	printf("\n");
+	//倒序输出
+	for(int j=count-1;j>0;j--)
+	{
+		printf("%c",str[j]);
+	}
+	printf("\n");
