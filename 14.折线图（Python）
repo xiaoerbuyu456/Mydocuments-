@@ -1,0 +1,99 @@
+"""
+折线图：
+plot(x, y, color='r')
+"""
+import matplotlib.pyplot as plt
+import numpy as np
+from pylab import mpl
+
+#设置中文字体
+mpl.rcParams['font.sans-serif'] = ['Microsoft YaHei']
+#解决图像保存时负号'-'显示为方框的问题
+mpl.rcParams['axes.unicode_minus'] = False
+
+#定义自变量与因变量
+values = list(range(1, 10))
+squares = [pow(i, 2) for i in values]
+
+#定义折线图的标题
+plt.title("平方", fontsize=15, color='r')
+#定义坐标轴
+plt.xlabel("自变量", fontsize=15, color='r')
+plt.ylabel("因变量", fontsize=15, color='r')
+#限制坐标轴
+plt.xlim((0,101))
+plt.ylim((0, 120))
+#自定义刻度
+my_x_ticks=np.arange(0, 101, 20)
+my_y_ticks=np.arange(0,121, 10)
+plt.xticks(my_x_ticks)
+plt.yticks(my_y_ticks)
+#绘制折线图
+plt.plot(values, squares, color='r')
+plt.show()
+
+import matplotlib.pyplot as plt
+from pylab import mpl
+import pandas as pd
+
+#设置中文字体
+mpl.rcParams['font.sans-serif'] = ['Microsoft YaHei']
+#解决图像保存时负号'-'显示为方框的问题
+mpl.rcParams['axes.unicode_minus'] = False
+
+df = pd.read_csv(".\data.csv", encoding='gbk', engine='python')
+
+#转化为日期格式的数据
+df['时间'] = pd.to_datetime(df["时间"])
+
+#定义折线图的标题
+plt.title("时间与费用的折线图", fontsize=25, color='r')
+#定义坐标轴
+plt.xlabel("时间",fontsize=25, color='r' )
+plt.ylabel("费用",fontsize=25, color='r' )
+plt.xticks(rotation=30)
+#绘图展示
+plt.plot(df["时间"], df["费用"], color='r',linewidth=1)
+plt.show()
+
+"""
+1.颜色
+r:red(红色) b:blue(蓝色) g:green(绿色) c:cyan(青色)
+m:magenta(洋红) y:yellow(黄色) k:black(黑色) w:white(白色)
+2.线型(linestyle)
+-：粗线  --:虚线 -.:点划线 :(点)
+"""
+import matplotlib.pyplot as plt
+import numpy as np
+from pylab import mpl
+
+#设置中文字体
+mpl.rcParams['font.sans-serif'] = ['Microsoft YaHei']
+#解决图像保存时负号'-'显示为方框的问题
+mpl.rcParams['axes.unicode_minus'] = False
+
+#定义自变量与因变量
+values = list(range(1, 10))
+squares = [pow(i, 2) for i in values]
+
+#定义折线图的标题
+plt.title("平方", fontsize=15, color='r')
+#定义坐标轴
+plt.xlabel("自变量", fontsize=15, color='r')
+plt.ylabel("因变量", fontsize=15, color='r')
+#限制坐标轴
+plt.xlim((0,10))
+plt.ylim((0, 120))
+#自定义刻度
+my_x_ticks=np.arange(0, 10, 1)
+my_y_ticks=np.arange(0,121, 10)
+plt.xticks(my_x_ticks)
+plt.yticks(my_y_ticks)
+#绘制折线图
+plt.plot(values, squares, color='c', linestyle=':')
+plt.show()
+
+
+
+
+
