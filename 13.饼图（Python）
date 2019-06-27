@@ -1,0 +1,41 @@
+"""
+pie(x, labels, colors, explode, aotupct)
+x:进行绘制图形的序列
+labels:饼图的各部分标签序列
+colors:饼图各部分的颜色，使用RGB颜色
+explode:需要突出的块状序列
+autopct:饼图占比的显示格式
+"""
+import matplotlib.pyplot as plt
+from pylab import mpl
+
+#设置中文字体
+mpl.rcParams['font.sans-serif'] = ['Microsoft YaHei']
+#解决图像保存时负号'-'显示为方框的问题
+mpl.rcParams['axes.unicode_minus'] = False
+
+#定义变量
+num = [20, 30, 40, 50]
+grade = ["Grade_1", "Grade_2", "Grade_3", "Grade_4"]
+colors=["orange", "purple", "red", "blue"]
+explode = (0.10, 0.05, 0, 0)
+#plt.axis("equal") #保证是一个圆，而不是椭圆
+plt.title("各年级人数", fontsize=20)
+plt.pie(num,
+        explode= explode, 
+        #labels=grade,
+        colors=colors, autopct='%.2f%%', 
+        shadow=False,#是否有阴影填充
+        pctdistance=0.6,#数值距圆心半径倍数的距离
+        startangle=0, #逆时针起始角度的设置
+        )
+#图例
+plt.legend(["Grade_1", "Grade_2", "Grade_3", "Grade_4"])
+plt.legend(grade, bbox_to_anchor=(0.1, 1))
+
+
+
+
+
+
+
